@@ -149,6 +149,37 @@ function initHeader() {
             }
         });
     });
+
+    // Mobile search button handler
+    const searchMobileBtn = document.querySelector('.search-mobile button');
+    if (searchMobileBtn) {
+        searchMobileBtn.addEventListener('click', () => {
+            const query = prompt('Введите поисковый запрос для поиска по каталогу:');
+            if (query && query.trim()) {
+                window.location.href = `/catalog.html?search=${encodeURIComponent(query.trim())}`;
+            }
+        });
+    }
+
+    // Catalog link handling: smooth scroll on homepage, redirect on other pages
+    const catalogLinks = document.querySelectorAll('a[href="/catalog.html"]');
+    catalogLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+            if (isHomepage) {
+                const target = document.querySelector('.catalog-section');
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // If in burger menu, close it
+                    const burgerMenu = document.getElementById('burger-menu');
+                    if (burgerMenu && burgerMenu.classList.contains('burger-menu')) {
+                        document.getElementById('burger-btn')?.click();
+                    }
+                }
+            }
+        });
+    });
 }
 
 // Burger menu
@@ -174,6 +205,27 @@ function initBurgerMenu() {
                 document.body.style.overflow = 'hidden';
             }
         });
+    }
+
+    // Handle "Каталог" expand/collapse or redirect inside mobile burger menu
+    const burgerLinks = document.querySelector('.burger-links');
+    if (burgerLinks) {
+        const catalogBtn = burgerLinks.querySelector('button.burger-link');
+        const catDropdown = burgerLinks.querySelector('.burger-cat-closed') || burgerLinks.querySelector('.burger-cat-open');
+        
+        if (catalogBtn && catDropdown) {
+            catalogBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Toggle sub-links visibility
+                if (catDropdown.classList.contains('burger-cat-closed')) {
+                    catDropdown.classList.remove('burger-cat-closed');
+                    catDropdown.classList.add('burger-cat-open');
+                } else {
+                    catDropdown.classList.remove('burger-cat-open');
+                    catDropdown.classList.add('burger-cat-closed');
+                }
+            });
+        }
     }
 }
 
