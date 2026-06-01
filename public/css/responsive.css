@@ -427,8 +427,18 @@
         margin-bottom: 0;
         border-radius: 2.67vw;
     }
-    .catalog-info-bottom p,
-    .catalog-info-bottom p:last-child { display: none }
+    .catalog-info-bottom p {
+        display: block !important;
+        font-size: 3.2vw !important;
+        color: #2f2f2f !important;
+        font-weight: 700 !important;
+        text-transform: none;
+        margin-top: 2vw;
+        line-height: 1.2;
+    }
+    .catalog-info-bottom p:last-child {
+        display: none !important;
+    }
     .catalog-buttons {
         flex-direction: column;
         align-items: start;
@@ -440,9 +450,17 @@
         width: 100%;
         background-color: red;
         color: #fff;
-        padding: 2vw 2.67vw;
+        padding: 2.5vw 2.67vw;
+        border-radius: 200px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.8vw;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
-    .catalog-buttons a > span:first-child { display: none }
+    .catalog-buttons a > span:first-child { display: inline !important }
     .catalog-link-mob {
         display: flex !important;
         align-items: center;
@@ -483,8 +501,15 @@
         font-size: 3.46vw;
         width: 60.8vw;
     }
-    .pros-img-desc { display: none }
-    .pros-img-mob { display: block }
+    .pros-img-desc {
+        display: block !important;
+        width: 14vw !important;
+        height: 14vw !important;
+        position: absolute !important;
+        top: 4vw !important;
+        right: 4vw !important;
+    }
+    .pros-img-mob { display: none !important }
 
     /* === Spheres === */
     .spheres-section {
@@ -791,4 +816,34 @@
     .spec-value {
         font-size: 3.2vw !important;
     }
+
+    /* Fix mobile empty cart/favorites text readability */
+    .empty-cart-message {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+        color: #2f2f2f !important;
+        padding: 8vw 6vw !important;
+        border-radius: 2.67vw !important;
+    }
+    .empty-cart-message h3 {
+        color: #2f2f2f !important;
+        font-size: 5vw !important;
+        margin-bottom: 2vw !important;
+        font-weight: 700 !important;
+    }
+    .empty-cart-message p {
+        color: #666 !important;
+        font-size: 3.5vw !important;
+        line-height: 1.5 !important;
+    }
+    .cart-page-container h1,
+    .liked-page-container h1 {
+        color: #2f2f2f !important;
+    }
+    .cart-page-container > p,
+    .liked-page-container > p {
+        color: #666 !important;
+    }
 }
+
