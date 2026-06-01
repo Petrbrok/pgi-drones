@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка товара... | PGI Technologies</title>
+    <meta name="description" content="Подробное описание товара, технические характеристики, отзывы и возможность оформления заказа.">
+    <!-- Стили -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <style>
+        /* Локальный лоадер для деталки */
+        .product-details-container.loading {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <!-- Logo -->
+            <a href="/">
+                <img src="/header_logo.png" alt="PGI TECH">
+                <img class="logo-mobile" src="/footer_logo.png" alt="PGI TECH">
+            </a>
+            
+            <!-- Search Desktop -->
+            <div class="search-container">
+                <div class="search-main">
+                    <input type="text" placeholder="DJI Matrice 30T">
+                </div>
+            </div>
+            
+            <!-- Search Mobile -->
+            <div class="search-mobile">
+                <button>
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="20.1641" cy="19.7793" rx="14.7373" ry="14.7373" stroke="white" stroke-width="1.5" stroke-linecap="square"></ellipse>
+                        <path d="M30.2266 30.6318L38.5746 38.9582" stroke="white" stroke-width="1.5" stroke-linecap="square"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="header-links">
+                <a href="/catalog.html">Каталог</a>
+                <a href="/blog.html">Блог</a>
+                <a href="#footer-contacts-section">Контакты</a>
+            </div>
+            
+            <!-- Contact Button -->
+            <button class="btn-contact" onclick="showContactModal()">
+                <span class="btn-contact-circles"></span>
+                <span>Связаться</span>
+            </button>
+            
+            <!-- Cart & Liked -->
+            <div class="cart-liked">
+                <a href="/cart.html">
+                    <div>
+                        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.7076 16.7743V14.7359C30.7076 9.92709 26.8093 6.02881 22.0005 6.02881C17.1917 6.02881 13.2935 9.92709 13.2935 14.7359V16.7743" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M37.0092 37.9712L38.9582 13.4915L5.0415 13.4915L6.99046 37.9712L37.0092 37.9712Z" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="/liked.html">
+                    <div>
+                        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M38.958 17.6647C38.9398 13.0157 36.5007 8.64351 31.6919 7.09438C28.39 6.02882 24.7932 6.62139 21.9998 10.6318C19.2065 6.62139 15.6097 6.02882 12.3077 7.09438C7.49844 8.64369 5.0593 13.0167 5.04166 17.6663C4.99718 26.9132 14.367 33.989 21.9975 37.371L21.9998 37.3699L22.0022 37.371C29.6331 33.9888 39.0036 26.9123 38.958 17.6647Z" stroke="white" stroke-width="1.5" stroke-linecap="square"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Burger Menu Button -->
+            <button class="burger" id="burger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Burger Menu Dropdown -->
+            <div class="burger-closed" id="burger-menu">
+                <button class="burger-contact" onclick="showContactModal()">Связаться</button>
+                <div class="burger-links">
+                    <button class="burger-link">Каталог</button>
+                    <div class="burger-cat-closed">
+                        <a href="/catalog.html">Все товары</a>
+                        <a href="/catalog.html">Дроны</a>
+                        <a href="/catalog.html">РЭБ</a>
+                        <a href="/catalog.html">Комлектующие</a>
+                        <a href="/catalog.html">Детектеры</a>
+                    </div>
+                    <a class="burger-link" href="/blog.html">Блог</a>
+                    <button class="burger-link" onclick="showContactModal()">Контакты и обратная связь</button>
+                </div>
+                <div class="burger-contacts">
+                    <div>
+                        <img src="/whatsapp_burger.png" alt="whatsapp_burger">
+                        <p>WhatsApp</p>
+                    </div>
+                    <div>
+                        <img src="/wechat_burger.png" alt="wechat_burger">
+                        <p>WeChat</p>
+                    </div>
+                    <div>
+                        <img src="/telegram_burger.png" alt="telegram_burger">
+                        <p>Telegram</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ДЕТАЛИ ТОВАРА (Product Details Container) -->
+    <section class="product-details-container container animate-slide-up" style="padding-top: 40px;">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a>
+            <span>/</span>
+            <a href="/catalog.html">Каталог</a>
+            <span>/</span>
+            <a href="#" class="breadcrumb-category">Загрузка категории...</a>
+            <span>/</span>
+            <span class="breadcrumb-current" style="color: var(--text-white);">Загрузка названия...</span>
+        </div>
+
+        <div class="product-detail-layout">
+            <!-- Галерея (Слева) -->
+            <div class="product-gallery-wrapper">
+                <div class="product-gallery-main">
+                    <button class="gallery-nav-btn prev-btn" id="gallery-prev-btn" aria-label="Предыдущее фото">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"></path></svg>
+                    </button>
+                    <img src="" alt="Товар" id="main-gallery-image" />
+                    <button class="gallery-nav-btn next-btn" id="gallery-next-btn" aria-label="Следующее фото">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"></path></svg>
+                    </button>
+                </div>
+                <div class="product-gallery-thumbnails">
+                    <!-- Миниатюры будут добавлены динамически через JS -->
+                </div>
+            </div>
+
+            <!-- Инфо и выбор (Справа) -->
+            <div class="product-info-detail">
+                <h1 class="product-title-detail" style="color: white;">Загрузка названия товара...</h1>
+                <div class="product-price-detail">0 ₽</div>
+                <p class="product-description-detail">Пожалуйста, подождите, мы загружаем подробное описание товара...</p>
+
+                <!-- Выбор количества и Покупка -->
+                <div class="purchase-actions-row">
+                    <div class="quantity-selector">
+                        <button class="qty-btn qty-btn-minus">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" readonly />
+                        <button class="qty-btn qty-btn-plus">+</button>
+                    </div>
+                    <button class="red-btn add-to-cart-detail-btn" style="height: 48px; flex: 1;">Добавить в корзину</button>
+                    <button class="action-icon-btn detail-like-btn" title="Добавить в избранное" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 50%;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; margin-bottom: 25px;">
+                    <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 10px;">📦 <b>Быстрая доставка:</b> Отправка карго транспортом во все регионы.</p>
+                    <p style="font-size: 13px; color: var(--text-gray);">🛡️ <b>Официальная гарантия:</b> 1 год бесплатного сервисного обслуживания.</p>
+                </div>
+
+                <!-- Таблица характеристик (ТТХ) перенесена вправо -->
+                <div class="specs-section-detail">
+                    <h2 class="specs-title">Технические характеристики</h2>
+                    <div class="specs-table glassmorphic" style="border: 1px solid rgba(255,255,255,0.06);">
+                        <!-- Заполняется динамически скриптом product.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ ПОХОЖИХ ТОВАРОВ (Similar Products) -->
+    <section class="similar-products-section container" style="margin-top: 80px; margin-bottom: 40px;">
+        <h2 style="font-size: 24px; text-transform: uppercase; margin-bottom: 30px; font-family: var(--font-primary);">Похожие товары</h2>
+        <div class="similar-products-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <!-- Заполняется динамически скриптом product.js -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer-contacts-section">
+        <div class="footer-dark footer-layout">
+            <div class="container">
+                <div class="footer-card">
+                    <div class="footer-form-box">
+                        <p>остались вопросы?</p>
+                        <form class="footer-form" id="footer-lead-form">
+                            <div class="footer-input-box">
+                                <label for="footer-name">Ваше имя</label>
+                                <input id="footer-name" required placeholder="Сергей Сергеевич" type="text" name="name">
+                            </div>
+                            <div class="footer-input-box">
+                                <label for="footer-tel">Номер телефона</label>
+                                <input id="footer-tel" required placeholder="+7 (999) 999-99-99" type="tel" name="phone">
+                            </div>
+                            <div class="footer-input-box">
+                                <label for="footer-email">Ваша почта</label>
+                                <input id="footer-email" required placeholder="example@mail.ru" type="email" name="email">
+                            </div>
+                            <p>Нажимая отправить, Вы соглашаетесь на обработку перональных данных, и соглашаетесь с офертой</p>
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="footer-right">
+                        <div>
+                            <a href="/">
+                                <img src="/footer_logo.png" alt="PGI">
+                            </a>
+                            <div class="footer-contacts">
+                                <p>Контактная информация</p>
+                                <a href="mailto:example@mail.ru">example@mail.ru</a>
+                                <span>114 Mitchell Cul-de-sac Lake Deloresview, NT 2972</span>
+                            </div>
+                        </div>
+                        <div class="footer-social">
+                            <p>Связь с нами:</p>
+                            <div>
+                                <a href="#"><img src="/wechat.svg" alt="wechat">WeChat</a>
+                                <a href="#"><img src="/whatsapp.svg" alt="whatsapp">WhatsApp</a>
+                                <a href="#"><img src="/telegram.svg" alt="telegram">Telegram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/product.js"></script>
+</body>
+</html>
+

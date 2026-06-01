@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена (404) | PGI Technologies</title>
+    <!-- Стили -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <!-- ШАПКА САЙТА (Header из референса) -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/header_logo.png" alt="PGI Technology" style="width: 7.03125vw; height: 2.08vw; object-fit: contain;"/>
+            </a>
+            <nav class="header-nav" style="margin-left: auto; margin-right: 20px; display: flex; gap: 2vw;">
+                <a href="/catalog.html" style="color: white; font-weight: 500; font-size: 1.04vw;">Каталог</a>
+                <a href="/blog.html" style="color: white; font-weight: 500; font-size: 1.04vw;">Блог</a>
+            </nav>
+            <button class="contact-trigger-btn" onclick="showContactModal()" style="background-color: red; color: white; padding: 1vw 2vw; border-radius: 200px; font-size: 1vw; font-weight: 500;">Связаться</button>
+        </div>
+    </header>
+
+    <!-- СЕКЦИЯ 404 -->
+    <section class="container text-center" style="padding: 100px 0; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;">
+        <div class="glassmorphic animate-slide-up" style="padding: 60px 40px; border-radius: var(--border-radius-lg); max-width: 500px; width: 100%; background: rgba(20, 20, 28, 0.6); border: 1px solid rgba(255,255,255,0.06);">
+            <span style="font-size: 100px; line-height: 1; display: block; margin-bottom: 20px; font-family: var(--font-primary); font-weight: 800; color: var(--primary-red); text-shadow: 0 0 30px var(--primary-red-glow);">404</span>
+            <h1 style="font-size: 24px; margin-bottom: 15px; text-transform: uppercase; color: white;">Страница не найдена</h1>
+            <p class="text-gray" style="font-size: 14px; margin-bottom: 30px; line-height: 1.6;">Ой, кажется, запрашиваемой страницы не существует, или она была перемещена. Проверьте адрес или вернитесь на главную страницу.</p>
+            <a href="/" class="red-btn" style="display: inline-block; width: 100%; border-radius: 50px;">На главную страницу</a>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ (Footer) -->
+    <footer class="footer" style="margin-top: 50px;">
+        <div class="container text-center" style="font-size: 12px; color: #888888;">
+            <p>&copy; 2026 PGI Technologies. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
+

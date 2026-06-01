@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | PGI Technologies</title>
+    <meta name="description" content="Продажа дронов и комплектующих к ним.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <!-- Logo -->
+            <a href="/">
+                <img src="/header_logo.png" alt="PGI TECH">
+                <img class="logo-mobile" src="/footer_logo.png" alt="PGI TECH">
+            </a>
+            
+            <!-- Search Desktop -->
+            <div class="search-container">
+                <div class="search-main">
+                    <input type="text" placeholder="DJI Matrice 30T">
+                </div>
+            </div>
+            
+            <!-- Search Mobile -->
+            <div class="search-mobile">
+                <button>
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="20.1641" cy="19.7793" rx="14.7373" ry="14.7373" stroke="white" stroke-width="1.5" stroke-linecap="square"></ellipse>
+                        <path d="M30.2266 30.6318L38.5746 38.9582" stroke="white" stroke-width="1.5" stroke-linecap="square"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="header-links">
+                <a href="/catalog.html">Каталог</a>
+                <a href="/blog.html">Блог</a>
+                <a href="#footer-contacts-section">Контакты</a>
+            </div>
+            
+            <!-- Contact Button -->
+            <button class="btn-contact" onclick="showContactModal()">
+                <span class="btn-contact-circles"></span>
+                <span>Связаться</span>
+            </button>
+            
+            <!-- Cart & Liked -->
+            <div class="cart-liked">
+                <a href="/cart.html">
+                    <div>
+                        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.7076 16.7743V14.7359C30.7076 9.92709 26.8093 6.02881 22.0005 6.02881C17.1917 6.02881 13.2935 9.92709 13.2935 14.7359V16.7743" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M37.0092 37.9712L38.9582 13.4915L5.0415 13.4915L6.99046 37.9712L37.0092 37.9712Z" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="/liked.html">
+                    <div>
+                        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M38.958 17.6647C38.9398 13.0157 36.5007 8.64351 31.6919 7.09438C28.39 6.02882 24.7932 6.62139 21.9998 10.6318C19.2065 6.62139 15.6097 6.02882 12.3077 7.09438C7.49844 8.64369 5.0593 13.0167 5.04166 17.6663C4.99718 26.9132 14.367 33.989 21.9975 37.371L21.9998 37.3699L22.0022 37.371C29.6331 33.9888 39.0036 26.9123 38.958 17.6647Z" stroke="white" stroke-width="1.5" stroke-linecap="square"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Burger Menu Button -->
+            <button class="burger" id="burger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Burger Menu Dropdown -->
+            <div class="burger-closed" id="burger-menu">
+                <button class="burger-contact" onclick="showContactModal()">Связаться</button>
+                <div class="burger-links">
+                    <button class="burger-link">Каталог</button>
+                    <div class="burger-cat-closed">
+                        <a href="/catalog.html">Все товары</a>
+                        <a href="/catalog.html">Дроны</a>
+                        <a href="/catalog.html">РЭБ</a>
+                        <a href="/catalog.html">Комлектующие</a>
+                        <a href="/catalog.html">Детектеры</a>
+                    </div>
+                    <a class="burger-link" href="/blog.html">Блог</a>
+                    <button class="burger-link" onclick="showContactModal()">Контакты и обратная связь</button>
+                </div>
+                <div class="burger-contacts">
+                    <div>
+                        <img src="/whatsapp_burger.png" alt="whatsapp_burger">
+                        <p>WhatsApp</p>
+                    </div>
+                    <div>
+                        <img src="/wechat_burger.png" alt="wechat_burger">
+                        <p>WeChat</p>
+                    </div>
+                    <div>
+                        <img src="/telegram_burger.png" alt="telegram_burger">
+                        <p>Telegram</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-container container">
+            <div class="hero-content">
+                <span class="hero-eyebrow">PGI Technologies</span>
+                <h1 class="hero-title">ДРОНЫ ОТ ПРОИЗВОДИТЕЛЯ</h1>
+                <p class="hero-desc">Разработка и производство промышленных БПЛА, систем радиоэлектронной борьбы и обнаружения дронов для защиты объектов.</p>
+                <div class="hero-actions">
+                    <a href="/catalog.html" class="btn-primary">
+                        <span>Смотреть каталог</span>
+                        <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                    <button class="btn-secondary" onclick="showContactModal()">
+                        <span>Связаться</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-video-wrapper">
+                    <video autoplay muted playsinline class="hero-video" id="drone-hero-video">
+                        <source src="/drone_anim.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- NEW PRODUCTS -->
+    <div class="container" style="overflow: hidden;">
+        <div class="new-products-grid">
+            <!-- Filled dynamically by JS -->
+        </div>
+    </div>
+    
+    <!-- CATALOG SECTION -->
+    <div class="catalog-section catalog-main">
+        <div class="container">
+            <h1>Надёжность, инновации и профессионализм – наши основные принципы работы. самые популярные товары для вас.</h1>
+            <div class="catalog-items">
+                <div class="catalog-filters">
+                    <p>Разделы и фильтры:</p>
+                    <div class="catalog-h-mob">
+                        <h1>Надёжность, инновации и профессионализм – наши основные принципы работы. самые популярные товары для вас.</h1>
+                    </div>
+                    <div class="catalog-filter-tags">
+                        <div>
+                            <input type="radio" id="new" name="filter">
+                            <label for="new">Новинки</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="promo" name="filter">
+                            <label for="promo">Акции</label>
+                        </div>
+                        <div class="filter-active">
+                            <input type="radio" id="popular" name="filter" checked>
+                            <label for="popular">Популярное</label>
+                        </div>
+                        <button class="mobile-filters-btn mf-closed">
+                            <span>Фильтры</span>
+                            <svg viewBox="0 0 22 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 2L21 2" stroke="black" stroke-width="0.5" stroke-linecap="round"></path>
+                                <path d="M15 8L1 8" stroke="black" stroke-width="0.5" stroke-linecap="round"></path>
+                                <circle cx="3" cy="2" r="1.75" stroke="black" stroke-width="0.5"></circle>
+                                <circle cx="19" cy="8" r="1.75" transform="rotate(180 19 8)" stroke="black" stroke-width="0.5"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="catalog-categories">
+                        <div class="catalog-category"><div class="skeleton"><div class="skeleton-animation"></div></div></div>
+                        <div class="catalog-category"><div class="skeleton"><div class="skeleton-animation"></div></div></div>
+                        <div class="catalog-category"><div class="skeleton"><div class="skeleton-animation"></div></div></div>
+                        <div class="catalog-category"><div class="skeleton"><div class="skeleton-animation"></div></div></div>
+                    </div>
+                </div>
+                <div class="catalog-view" id="catalog-view-main">
+                    <div class="catalog-product"><div class="skeleton" style="height:21.83vw;border-radius:1.04vw;"><div class="skeleton-animation"></div></div></div>
+                    <div class="catalog-product"><div class="skeleton" style="height:21.83vw;border-radius:1.04vw;"><div class="skeleton-animation"></div></div></div>
+                    <div class="catalog-product"><div class="skeleton" style="height:21.83vw;border-radius:1.04vw;"><div class="skeleton-animation"></div></div></div>
+                    <div class="catalog-product"><div class="skeleton" style="height:21.83vw;border-radius:1.04vw;"><div class="skeleton-animation"></div></div></div>
+                    <div class="catalog-product"><div class="skeleton" style="height:21.83vw;border-radius:1.04vw;"><div class="skeleton-animation"></div></div></div>
+                    <div class="catalog-product"><div class="skeleton" style="height:21.83vw;border-radius:1.04vw;"><div class="skeleton-animation"></div></div></div>
+                </div>
+            </div>
+            <a class="catalog-link" href="/catalog.html"><span>Смотреть весь каталог</span></a>
+        </div>
+    </div>
+    
+    <!-- PROS SECTION -->
+    <div class="pros-section">
+        <div class="container">
+            <div class="pros-grid">
+                <div class="pros-card">
+                    <img class="pros-img-desc" src="/red_propellers.svg" alt="img">
+                    <img class="pros-img-mob" src="/propellers_mob.png" alt="img">
+                    <p>Гарантия качества</p>
+                    <p>Продукция проходит тщательную проверку, исключающую брак</p>
+                </div>
+                <div class="pros-card">
+                    <img class="pros-img-desc" src="/red_drone.svg" alt="img">
+                    <img class="pros-img-mob" src="/drone_mob.png" alt="img">
+                    <p>Современные технологии</p>
+                    <p>Используются передовые разработки и материалы.</p>
+                </div>
+                <div class="pros-card">
+                    <img class="pros-img-desc" src="/red_motor.svg" alt="img">
+                    <img class="pros-img-mob" src="/motors_mob.png" alt="img">
+                    <p>Индивидуальный подход</p>
+                    <p>Кастомизация под задачи клиента</p>
+                </div>
+                <div class="pros-card">
+                    <img class="pros-img-desc" src="/red_flight_controller.svg" alt="img">
+                    <img class="pros-img-mob" src="/flight_controller_mob.png" alt="img">
+                    <p>Конкурентные цены</p>
+                    <p>Лучшее соотношение цены и качества</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SPHERES SECTION -->
+    <div class="spheres-section">
+        <div class="container">
+            <h2>СФЕРЫ ПРИМЕНЕНИЯ ДРОНОВ:</h2>
+            <div class="spheres-grid">
+                <div>
+                    <img src="/1.png" alt="img">
+                    <p>Нефтегазовая отрасль</p>
+                    <div class="sphere-drop">
+                        <span>Мониторинг трубопроводов, выявление утечек и инспекция буровых вышек. Дроны обеспечивают безопасность и снижают риски для персонала на сложных объектах.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/2.png" alt="img">
+                    <p>пожаротушение</p>
+                    <div class="sphere-drop">
+                        <span>Оперативная разведка очагов возгорания с помощью тепловизоров, координация действий спасателей и доставка средств пожаротушения в труднодоступные зоны.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/3.png" alt="img">
+                    <p>Поисково-спасательные работы</p>
+                    <div class="sphere-drop">
+                        <span>От обширных лесных массивов до труднодоступных горных районов – дроны расширяют возможности поисковых работ и дают надежду там, где кажется, что ее нет.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/4.png" alt="img">
+                    <p>Научные исследования</p>
+                    <div class="sphere-drop">
+                        <span>Вулканы, ледники, глубокие каньоны – дроны добираются туда, куда человеку попасть сложно или даже невозможно. Они собирают ценную информацию, не подвергая риску жизнь исследователей.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/5.png" alt="img">
+                    <p>спец.операции МВД, МО</p>
+                    <div class="sphere-drop">
+                        <span>Тактическая разведка, наблюдение за объектами и поддержка спецподразделений в реальном времени. Незаменимый инструмент для обеспечения безопасности и контроля.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/6.png" alt="img">
+                    <p>Сельское хозяйство</p>
+                    <div class="sphere-drop">
+                        <span>Представьте: вы сидите в уютном офисе, а ваш дрон уже парит над полями, собирая ценную информацию о состоянии ваших посевов. Это будущее сельского хозяйства, и оно уже здесь!</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/7.png" alt="img">
+                    <p>фотография и кинематограф</p>
+                    <div class="sphere-drop">
+                        <span>Дроны – это ваша новая, мобильная и доступная "воздушная студия", которая открывает невероятные возможности для кинематографа. От захватывающих панорамных съемок до динамичных сцен погони.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="/8.png" alt="img">
+                    <p>Электромонтаж</p>
+                    <div class="sphere-drop">
+                        <span>Высокая точность и скорость работ: Дроны оснащены высокоточными камерами и GPS-навигацией, что позволяет выполнять монтажные работы с максимальной точностью и скоростью.</span>
+                        <a href="/blog.html">
+                            <span>Читать подробнее</span>
+                            <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SHIPPING -->
+    <div class="shipping-section">
+        <div class="container">
+            <div class="shipping-box">
+                <img class="shipping-circle" src="/shipping_circle.svg" alt="circle">
+                <img class="shipping-drone" src="/drone_main.png" alt="drone">
+                <h3>доставка и гарантия</h3>
+                <p>Мы организуем надежную доставку продукции по всему миру. В зависимости от требований клиента, доставка осуществляется карго транспортом — автомобилем для ближних расстояний или самолетом для международных поставок, что гарантирует оперативность и сохранность грузов.<br><br>На средства радиоэлектронной борьбы (РЭБ) и детекторы предоставляется гарантия сроком на один год. Мы гарантируем высокое качество продукции и обеспечиваем бесплатное обслуживание или замену в случае выявления производственных дефектов в течение гарантийного срока.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BLOG SECTION -->
+    <div class="blog-section">
+        <div class="container">
+            <h2>Интересное</h2>
+            <div class="blog-grid">
+                <!-- Filled dynamically or empty -->
+            </div>
+            <a class="blog-link" href="/blog.html">Читать все новости</a>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer id="footer-contacts-section">
+        <div class="footer-dark footer-layout">
+            <div class="container">
+                <div class="footer-card">
+                    <div class="footer-form-box">
+                        <p>остались вопросы?</p>
+                        <form class="footer-form" id="footer-lead-form">
+                            <div class="footer-input-box">
+                                <label for="footer-name">Ваше имя</label>
+                                <input id="footer-name" required placeholder="Сергей Сергеевич" type="text" name="name">
+                            </div>
+                            <div class="footer-input-box">
+                                <label for="footer-tel">Номер телефона</label>
+                                <input id="footer-tel" required placeholder="+7 (999) 999-99-99" type="tel" name="phone">
+                            </div>
+                            <div class="footer-input-box">
+                                <label for="footer-email">Ваша почта</label>
+                                <input id="footer-email" required placeholder="example@mail.ru" type="email" name="email">
+                            </div>
+                            <p>Нажимая отправить, Вы соглашаетесь на обработку перональных данных, и соглашаетесь с офертой</p>
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="footer-right">
+                        <div>
+                            <a href="/">
+                                <img src="/footer_logo.png" alt="PGI">
+                            </a>
+                            <div class="footer-contacts">
+                                <p>Контактная информация</p>
+                                <a href="mailto:example@mail.ru">example@mail.ru</a>
+                                <span>114 Mitchell Cul-de-sac Lake Deloresview, NT 2972</span>
+                            </div>
+                        </div>
+                        <div class="footer-social">
+                            <p>Связь с нами:</p>
+                            <div>
+                                <a href="#"><img src="/wechat.svg" alt="wechat">WeChat</a>
+                                <a href="#"><img src="/whatsapp.svg" alt="whatsapp">WhatsApp</a>
+                                <a href="#"><img src="/telegram.svg" alt="telegram">Telegram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="/js/api.js"></script>
+    <script src="/js/main.js"></script>
+    
+    <!-- Dynamic product loading -->
+    <script>
+        // Global homepage filters state
+        let currentHomepageFilters = {
+            category: '',
+            is_new: '',
+            is_promo: '',
+            is_popular: 'true' // "Popular" checked by default on homepage
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // === New Products ===
+            const container = document.querySelector('.new-products-grid');
+            if (container) {
+                let skeletonsHtml = '';
+                for (let i = 0; i < 6; i++) {
+                    skeletonsHtml += `
+                        <div class="new-product-card">
+                            <div class="new-product-main skeleton" style="height:10.417vw;"><div class="skeleton-animation"></div></div>
+                            <div class="skeleton" style="height:14px; width:60px; border-radius:200px; margin-bottom:10px;"><div class="skeleton-animation"></div></div>
+                            <div class="skeleton" style="height:12px; width:100px; border-radius:4px;"><div class="skeleton-animation"></div></div>
+                        </div>
+                    `;
+                }
+                container.innerHTML = skeletonsHtml;
+
+                const products = await API.getProducts({ is_new: 'true' });
+                const sliceProducts = products.slice(0, 6);
+
+                if (sliceProducts.length === 0) {
+                    container.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#b3b3b3;">Новинки временно отсутствуют.</p>';
+                } else {
+                    // Дублируем массив для бесшовной бегущей строки
+                    const doubledProducts = [...sliceProducts, ...sliceProducts];
+                    
+                    let productsHtml = '';
+                    doubledProducts.forEach(product => {
+                        const imgUrl = product.image_url || '/drone_main.png';
+                        productsHtml += `
+                            <div class="new-product-card">
+                                <a class="new-product-main" href="/product.html?id=${product.id}">
+                                    <img src="${imgUrl}" alt="${product.title}" loading="lazy" onerror="this.src='/drone_main.png'">
+                                    <span>НОВИНКА</span>
+                                    <div>
+                                        <svg viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 31L1 16L17 0.999999" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                </a>
+                                <p class="new-product-title">${product.title}</p>
+                            </div>
+                        `;
+                    });
+                    container.innerHTML = productsHtml;
+                }
+            }
+
+            // === Load Catalog Categories Dynamically & Make Menu Functional ===
+            const categoriesContainer = document.querySelector('.catalog-categories');
+            if (categoriesContainer) {
+                try {
+                    const categoryNamesRu = {
+                        'drones': 'Дроны',
+                        'reb': 'РЭБ системы',
+                        'components': 'Комплектующие',
+                        'detectors': 'Детекторы БПЛА'
+                    };
+
+                    const categories = await API.getCategories();
+                    
+                    let categoriesHtml = `
+                        <button class="category-tab active" data-category="">Все товары</button>
+                    `;
+
+                    categories.forEach(cat => {
+                        const displayName = categoryNamesRu[cat] || cat.toUpperCase();
+                        categoriesHtml += `
+                            <button class="category-tab" data-category="${cat}">${displayName}</button>
+                        `;
+                    });
+
+                    categoriesContainer.innerHTML = categoriesHtml;
+
+                    // Click listeners for categories
+                    const tabs = categoriesContainer.querySelectorAll('.category-tab');
+                    tabs.forEach(tab => {
+                        tab.addEventListener('click', async (e) => {
+                            tabs.forEach(t => t.classList.remove('active'));
+                            e.target.classList.add('active');
+                            
+                            currentHomepageFilters.category = e.target.dataset.category;
+                            await loadHomepageProducts();
+                        });
+                    });
+                } catch(e) {
+                    console.error('Failed to load categories:', e);
+                    categoriesContainer.innerHTML = '<p style="color: red; font-size: 12px;">Не удалось загрузить категории.</p>';
+                }
+            }
+
+            // === Handle Status Radio Filters (New / Promo / Popular) ===
+            const filterRadios = document.querySelectorAll('input[name="filter"]');
+            filterRadios.forEach(radio => {
+                radio.addEventListener('change', async (e) => {
+                    // Reset status filters
+                    currentHomepageFilters.is_new = '';
+                    currentHomepageFilters.is_promo = '';
+                    currentHomepageFilters.is_popular = '';
+
+                    // Shift active container styles
+                    filterRadios.forEach(r => {
+                        r.closest('div')?.classList.remove('filter-active');
+                    });
+                    e.target.closest('div')?.classList.add('filter-active');
+
+                    const selectedFilter = e.target.id;
+                    if (selectedFilter === 'new') currentHomepageFilters.is_new = 'true';
+                    if (selectedFilter === 'promo') currentHomepageFilters.is_promo = 'true';
+                    if (selectedFilter === 'popular') currentHomepageFilters.is_popular = 'true';
+
+                    await loadHomepageProducts();
+                });
+            });
+
+            // Initial load of products
+            await loadHomepageProducts();
+
+            // === Slow down Hero Video ===
+            const heroVideo = document.getElementById('drone-hero-video');
+            if (heroVideo) {
+                heroVideo.playbackRate = 0.8; // Speed up video slightly
+            }
+        });
+
+        // AJAX products loader for homepage
+        async function loadHomepageProducts() {
+            const catalogView = document.getElementById('catalog-view-main');
+            if (!catalogView) return;
+
+            // Render loading skeletons
+            let skeletonsHtml = '';
+            for (let i = 0; i < 6; i++) {
+                skeletonsHtml += `
+                    <div class="catalog-product">
+                        <div class="skeleton animate-fade-in" style="height:21.83vw; border-radius:1.04vw;"><div class="skeleton-animation"></div></div>
+                    </div>
+                `;
+            }
+            catalogView.innerHTML = skeletonsHtml;
+
+            try {
+                const products = await API.getProducts(currentHomepageFilters);
+                const sliced = products.slice(0, 6);
+                
+                if (sliced.length > 0) {
+                    let html = '';
+                    sliced.forEach(p => {
+                        const imgUrl = p.image_url || '/drone_main.png';
+                        const catMap = { 'drones': 'Дроны', 'reb': 'РЭБ', 'components': 'Комплектующие', 'detectors': 'Детекторы' };
+                        const catName = catMap[p.category] || p.category || 'Товар';
+
+                        html += `
+                            <div class="catalog-product animate-fade-in">
+                                <div class="catalog-info">
+                                    <div class="catalog-info-upper">
+                                        <span>${catName}</span>
+                                    </div>
+                                    <div class="catalog-info-bottom">
+                                        <img src="${imgUrl}" alt="${p.title}" onerror="this.src='/drone_main.png'">
+                                        <p>${p.title}</p>
+                                        <p>${p.description || ''}</p>
+                                    </div>
+                                </div>
+                                <div class="catalog-buttons">
+                                    <a href="/product.html?id=${p.id}"><span>Подробнее</span></a>
+                                    <button onclick="addToCart(${p.id})">В корзину</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    catalogView.innerHTML = html;
+                } else {
+                    catalogView.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; color: #a0aec0; padding: 4vw 0;">
+                            <p>К сожалению, в этой категории товаров не найдено. 🔍</p>
+                        </div>
+                    `;
+                }
+            } catch(e) {
+                console.error('Failed to load catalog products:', e);
+                catalogView.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: red;">Ошибка при загрузке каталога.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
+

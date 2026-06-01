@@ -1,0 +1,86 @@
+/* ===== GLOBAL RESET (exact copy from original) ===== */
+*, ::after, ::before { box-sizing: border-box }
+ol[class], ul[class] { padding: 0 }
+a, a:active, a:focus { color: inherit; text-decoration: none }
+blockquote, body, dd, dl, figcaption, figure, h1, h2, h3, h4, li, ol[class], p, ul[class] { margin: 0 }
+body { min-height: 100vh; scroll-behavior: smooth; text-rendering: optimizeSpeed; line-height: 1.5 }
+ol[class], ul[class] { list-style: none }
+a:not([class]) { text-decoration-skip-ink: auto }
+img { max-width: 100%; display: block }
+article > * + * { margin-top: 1em }
+button, input, select, textarea { font: inherit; border: none; outline: none }
+body, html { max-width: 100vw; position: relative }
+body { color: #fff; background-color: #2f2f2f; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale }
+* { box-sizing: border-box; padding: 0; margin: 0 }
+a { color: inherit; text-decoration: none }
+button { cursor: pointer }
+
+/* ===== FONT (Gilroy substitute - Inter from Google Fonts) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Inter', system-ui, arial;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 89.58vw;
+    margin: 0 auto;
+}
+
+/* ===== SKELETON ===== */
+.skeleton {
+    background-color: #ccc;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.04vw;
+}
+
+.skeleton-animation {
+    position: absolute;
+    background-color: #e0e0e0;
+    animation: skeleton-loading 1.5s infinite;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes skeleton-loading {
+    0% { left: -100% }
+    to { left: 100% }
+}
+
+/* ===== SWIPER (from original) ===== */
+:root { --swiper-theme-color: #007aff }
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+}
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+    box-sizing: content-box;
+}
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
+}
+.swiper-horizontal { touch-action: pan-y }
