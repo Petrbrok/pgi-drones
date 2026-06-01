@@ -162,7 +162,7 @@ function initHeader() {
     }
 
     // Catalog link handling: smooth scroll on homepage, redirect on other pages
-    const catalogLinks = document.querySelectorAll('a[href="/catalog.html"]');
+    const catalogLinks = document.querySelectorAll('.header-links a[href="/catalog.html"], .burger-links a[href="/catalog.html"], .burger-links button.burger-link');
     catalogLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
@@ -177,6 +177,8 @@ function initHeader() {
                         document.getElementById('burger-btn')?.click();
                     }
                 }
+            } else if (link.tagName !== 'BUTTON') {
+                window.location.href = '/catalog.html';
             }
         });
     });
@@ -187,16 +189,22 @@ function initBurgerMenu() {
     const burgerBtn = document.getElementById('burger-btn');
     const burgerMenu = document.getElementById('burger-menu');
 
+    const closeMenu = () => {
+        if (burgerMenu && burgerMenu.classList.contains('burger-menu')) {
+            burgerMenu.classList.remove('burger-menu');
+            burgerMenu.classList.add('burger-closed');
+            burgerBtn.classList.remove('burger-close-btn');
+            burgerBtn.classList.add('burger');
+            document.body.style.overflow = '';
+        }
+    };
+
     if (burgerBtn && burgerMenu) {
         burgerBtn.addEventListener('click', () => {
             const isOpen = burgerMenu.classList.contains('burger-menu');
             
             if (isOpen) {
-                burgerMenu.classList.remove('burger-menu');
-                burgerMenu.classList.add('burger-closed');
-                burgerBtn.classList.remove('burger-close-btn');
-                burgerBtn.classList.add('burger');
-                document.body.style.overflow = '';
+                closeMenu();
             } else {
                 burgerMenu.classList.remove('burger-closed');
                 burgerMenu.classList.add('burger-menu');
@@ -204,6 +212,13 @@ function initBurgerMenu() {
                 burgerBtn.classList.add('burger-close-btn');
                 document.body.style.overflow = 'hidden';
             }
+        });
+
+        // Close menu when clicking on any link inside the burger menu
+        burgerMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
         });
     }
 

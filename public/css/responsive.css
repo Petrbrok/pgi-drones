@@ -9,7 +9,7 @@
 
     /* === Container === */
     .container {
-        width: 89.33vw !important;
+        width: 92vw !important;
         margin: 0 auto !important;
     }
 
@@ -21,70 +21,53 @@
         position: sticky !important;
         top: 0 !important;
         z-index: 80 !important;
+        width: 100% !important;
     }
     .header > div:first-child {
-        justify-content: space-between !important;
+        display: flex !important;
         align-items: center !important;
-        height: 14.2vw !important;
+        justify-content: space-between !important;
+        height: 16vw !important;
+        width: 92vw !important;
+        margin: 0 auto !important;
+        gap: 2vw !important;
     }
     .header > div:first-child > a {
         padding: 0 !important;
         border: none !important;
         display: flex !important;
         align-items: center !important;
+        flex: 0 0 auto !important;
+        order: 1 !important;
     }
     .header > div:first-child > a > img:first-child {
         display: none !important;
     }
     .header > div:first-child > a .logo-mobile {
         display: block !important;
-        width: 25.06vw !important;
-        height: 6.4vw !important;
+        width: 25vw !important;
+        height: 7vw !important;
         object-fit: contain !important;
     }
     .header > div:first-child > button { display: none !important }
     .btn-contact { display: none !important }
 
-    /* === Cart & Liked Mobile === */
-    .cart-liked {
-        display: flex !important;
-        align-items: center !important;
-    }
-    .cart-liked a {
-        border: none !important;
-        padding: 2.666vw 2vw !important;
-    }
-    .cart-liked a > div > svg {
-        width: 8vw !important;
-        height: 8vw !important;
-    }
-    .cart-liked a > div > svg path {
-        stroke: #fff !important;
-    }
-    .cart-liked a .counter-badge {
-        top: 1.87vw !important;
-        right: 0 !important;
-        width: 4vw !important;
-        height: 4vw !important;
-        font-size: 2.5vw !important;
-        background-color: red !important;
-        color: #fff !important;
-        border-radius: 50% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    /* === Search Mobile === */
+    /* === Search Mobile (Magnifying Glass Centered) === */
     .search-container { display: none !important }
     .search-mobile {
         display: flex !important;
-        margin-left: auto !important;
-        margin-right: 2vw !important;
+        align-items: center !important;
+        justify-content: center !important;
+        order: 2 !important;
+        margin-left: auto !important; /* Center alignment tricks */
     }
     .search-mobile button {
         display: block !important;
         background-color: transparent !important;
+        padding: 0 !important;
+        border: none !important;
+        display: flex !important;
+        align-items: center !important;
     }
     .search-mobile button svg {
         width: 8vw !important;
@@ -93,46 +76,88 @@
     .search-mobile button svg ellipse,
     .search-mobile button svg path {
         stroke: #fff !important;
+        stroke-width: 2px !important;
+    }
+
+    /* === Cart & Liked Mobile (Centered next to search) === */
+    .cart-liked {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        order: 3 !important;
+        margin-right: auto !important; /* Push burger right */
+        gap: 3vw !important;
+    }
+    .cart-liked a {
+        border: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        position: relative !important;
+    }
+    .cart-liked a > div > svg {
+        width: 8vw !important;
+        height: 8vw !important;
+    }
+    .cart-liked a > div > svg path {
+        stroke: #fff !important;
+        stroke-width: 2px !important;
+    }
+    .cart-liked a .counter-badge {
+        position: absolute !important;
+        top: -1.5vw !important;
+        right: -1.5vw !important;
+        width: 5vw !important;
+        height: 5vw !important;
+        font-size: 3vw !important;
+        background-color: red !important;
+        color: #fff !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: bold !important;
     }
 
     /* === Header Links === */
     .header-links { display: none !important }
 
-    /* === Burger Button === */
+    /* === Burger Button (Right-aligned) === */
     .burger {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         background-color: transparent !important;
-        width: 7vw !important;
-        height: 5vw !important;
+        width: 8vw !important;
+        height: 5.5vw !important;
         padding: 0 !important;
         border: none !important;
-        margin-left: 4vw !important;
+        order: 4 !important;
+        margin-left: 0 !important;
     }
     .burger span {
         display: block !important;
         background-color: #fff !important;
         width: 100% !important;
-        height: 2px !important;
+        height: 2.5px !important;
         border-radius: 100px !important;
     }
     .burger-close-btn {
         display: flex !important;
         position: relative !important;
         background-color: transparent !important;
-        width: 7vw !important;
-        height: 5vw !important;
+        width: 8vw !important;
+        height: 5.5vw !important;
         padding: 0 !important;
         border: none !important;
-        margin-left: 4vw !important;
+        order: 4 !important;
     }
     .burger-close-btn span {
         position: absolute !important;
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        height: 2px !important;
+        height: 2.5px !important;
         width: 100% !important;
     }
     .burger-close-btn span:first-child {
@@ -152,10 +177,10 @@
         align-items: center !important;
         overflow-y: auto !important;
         background-color: #2f2f2f !important;
-        top: 14.2vw !important;
+        top: 16vw !important;
         left: 0 !important;
         width: 100vw !important;
-        height: calc(100vh - 14.2vw) !important;
+        height: calc(100vh - 16vw) !important;
         padding: 8vw 5.33vw !important;
         border-bottom-right-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
@@ -169,7 +194,7 @@
         color: #fff !important;
         width: 100% !important;
         padding: 4vw !important;
-        font-size: 4vw !important;
+        font-size: 4.5vw !important;
         line-height: 100% !important;
         border-radius: 200px !important;
         margin-bottom: 8vw !important;
@@ -180,15 +205,15 @@
         align-items: start !important;
         width: 100% !important;
         margin-bottom: 10.66vw !important;
-        gap: 5vw !important;
+        gap: 6vw !important;
     }
     .burger-link {
         background-color: transparent !important;
         display: block !important;
         color: #fff !important;
-        font-size: 5vw !important;
+        font-size: 5.5vw !important;
         line-height: 100% !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         text-align: left !important;
         padding: 0 !important;
         border: none !important;
@@ -203,11 +228,12 @@
         padding-left: 4vw !important;
         gap: 4vw !important;
         width: 100% !important;
+        border-left: 2px solid rgba(255, 255, 255, 0.1) !important;
     }
     .burger-cat-open a {
         display: block !important;
         color: #b3b3b3 !important;
-        font-size: 4vw !important;
+        font-size: 4.2vw !important;
     }
     .burger-contacts {
         display: flex !important;
@@ -295,7 +321,7 @@
         gap: 4vw !important;
     }
     .new-product-card {
-        width: 38vw !important; /* Slightly wider cards for mobile ticker readability */
+        width: 38vw !important;
         border-radius: 2.67vw !important;
         padding: 2vw !important;
         background-color: #3a3a3a !important;
@@ -421,30 +447,28 @@
         display: none !important;
     }
 
-    /* Horizontal status tags */
+    /* Horizontal status tags (SQUISHING FIX - screenshot 1) */
     .catalog-filter-tags {
         display: flex !important;
         align-items: center !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        gap: 2.67vw !important;
+        flex-wrap: wrap !important;
+        gap: 3vw !important;
         margin-bottom: 0 !important;
-        padding-bottom: 2vw !important;
-        scrollbar-width: none !important;
+        padding: 2vw 0 !important;
         width: 100% !important;
     }
-    .catalog-filter-tags::-webkit-scrollbar {
-        display: none !important;
-    }
     .catalog-filter-tags div {
-        flex: 0 0 auto !important;
+        flex: 1 1 auto !important;
+        min-width: 26vw !important;
         display: flex !important;
         align-items: center !important;
+        justify-content: center !important;
         border: 1px solid #ccc !important;
         transition: all 0.2s !important;
-        padding: 2vw 4vw !important;
+        padding: 2.5vw 4vw !important;
         border-radius: 200px !important;
         background-color: #fff !important;
+        height: auto !important;
     }
     .catalog-filter-tags div.filter-active {
         background-color: red !important;
@@ -462,11 +486,12 @@
     .catalog-filter-tags div label {
         border: none !important;
         padding: 0 !important;
-        font-size: 3.2vw !important;
+        font-size: 3.5vw !important;
         line-height: 100% !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         color: #2f2f2f !important;
         cursor: pointer !important;
+        text-align: center !important;
     }
 
     .mobile-filters-btn { display: none !important }
@@ -480,8 +505,7 @@
         row-gap: 6vw !important;
         column-gap: 4vw !important;
     }
-    .catalog-product,
-    .products-grid .product-card {
+    .catalog-product {
         width: 100% !important;
         min-height: auto !important;
         position: relative !important;
@@ -540,14 +564,119 @@
         font-weight: 600 !important;
     }
 
-    /* Liked products grid page */
+    /* === Favorites Grid Layout (liked.html - Sizing & design similar to Cart) === */
     .liked-products-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5vw !important;
+        width: 100% !important;
     }
     .liked-products-grid .product-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 4vw !important;
+        padding: 5vw !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        border-radius: 3vw !important;
+        position: relative !important;
+        width: 100% !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    }
+    .liked-products-grid .card-image {
+        width: 100% !important;
+        height: 48vw !important;
+        border-radius: 2vw !important;
+        background: #1a1a1a !important;
+        overflow: hidden !important;
+    }
+    .liked-products-grid .card-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+    }
+    .liked-products-grid .card-info {
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2vw !important;
+    }
+    .liked-products-grid .product-title {
+        font-size: 5vw !important;
+        font-weight: 700 !important;
+        color: #fff !important;
+        margin-bottom: 1vw !important;
+        text-transform: uppercase !important;
+    }
+    .liked-products-grid .product-specs-preview {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5vw !important;
+        font-size: 3.5vw !important;
+        color: #b3b3b3 !important;
+    }
+    .liked-products-grid .product-specs-preview b {
+        color: #fff !important;
+    }
+    .liked-products-grid .product-price {
+        font-size: 5.5vw !important;
+        font-weight: 800 !important;
+        color: red !important;
+        margin: 3vw 0 !important;
+    }
+    .liked-products-grid .card-footer {
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+    .liked-products-grid .card-actions {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 3.5vw !important;
+        width: 100% !important;
+    }
+    .liked-products-grid .details-btn,
+    .liked-products-grid .buy-btn {
+        padding: 3.5vw 0 !important;
+        font-size: 4vw !important;
+        border-radius: 200px !important;
+        height: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: bold !important;
+    }
+    .liked-products-grid .details-btn {
+        background: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: #fff !important;
+    }
+    .liked-products-grid .buy-btn {
+        background-color: red !important;
+        color: #fff !important;
+        border: none !important;
+    }
+    .liked-products-grid .like-btn {
+        position: absolute !important;
+        top: 4vw !important;
+        right: 4vw !important;
+        width: 9vw !important;
+        height: 9vw !important;
+        border-radius: 50% !important;
+        background: rgba(255, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 0, 0, 0.2) !important;
+        color: red !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .liked-products-grid .like-btn svg {
+        width: 5vw !important;
+        height: 5vw !important;
+        fill: red !important;
+        stroke: red !important;
     }
 
     .catalog-link {
@@ -596,10 +725,10 @@
     }
     .pros-img-mob { display: none !important }
 
-    /* === Spheres Section === */
+    /* === Spheres Section (FIX overlapping photo & text) === */
     .spheres-section {
         background-color: #fff !important;
-        padding: 8vw 5.33vw !important;
+        padding: 8vw 4vw !important;
         border-radius: 4vw !important;
     }
     .spheres-section h2 {
@@ -608,47 +737,91 @@
         color: #2f2f2f !important;
     }
     .spheres-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 4vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5vw !important;
+        width: 100% !important;
     }
     .spheres-grid > div {
         width: 100% !important;
-        height: 42vw !important;
+        height: 60vw !important;
         border-radius: 3vw !important;
-        padding: 4vw !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
+    .spheres-grid > div img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1 !important;
+    }
+    /* Title text overlay (Top-Left) */
     .spheres-grid > div p {
-        font-size: 3.8vw !important;
+        position: absolute !important;
+        top: 4vw !important;
+        left: 4vw !important;
+        z-index: 4 !important;
+        color: #fff !important;
+        font-size: 4.8vw !important;
         font-weight: 700 !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.6) !important;
+        text-transform: uppercase !important;
     }
+    /* Bottom details drop container */
     .sphere-drop {
-        transform: translate(0) !important;
-        background: rgba(255, 255, 255, 0.95) !important;
-        padding: 3vw !important;
-        justify-content: space-between !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%) !important;
+        padding: 4vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        z-index: 3 !important;
     }
+    /* Description text shown below title */
     .sphere-drop > span:first-of-type {
         display: -webkit-box !important;
         -webkit-box-orient: vertical !important;
         -webkit-line-clamp: 3 !important;
         overflow: hidden !important;
-        font-size: 2.8vw !important;
-        color: #2f2f2f !important;
-        margin-bottom: 2vw !important;
+        font-size: 3.2vw !important;
+        color: #e2e8f0 !important;
+        line-height: 1.4 !important;
+        margin-bottom: 3vw !important;
+        margin-top: 12vw !important; /* Spacing below the title */
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
     }
+    /* Read detail button */
     .sphere-drop a {
-        padding: 2.5vw 0 !important;
         width: 100% !important;
+        background-color: red !important;
         border-radius: 100px !important;
+        padding: 3vw 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
     }
     .sphere-drop a span {
-        font-size: 2.8vw !important;
+        font-size: 3.2vw !important;
         margin-right: 2vw !important;
+        color: #fff !important;
+        font-weight: bold !important;
     }
     .sphere-drop a svg {
-        width: 1.5vw !important;
-        height: 2.5vw !important;
+        width: 2vw !important;
+        height: 3vw !important;
+    }
+    .sphere-drop a svg path {
+        stroke: #fff !important;
+        stroke-width: 2px !important;
     }
 
     /* === Shipping Section === */
@@ -969,15 +1142,17 @@
         flex-direction: column !important;
         align-items: stretch !important;
         gap: 4vw !important;
-        padding: 4vw !important;
+        padding: 5vw !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        border-radius: 2.67vw !important;
+        border-radius: 3vw !important;
         position: relative !important;
+        width: 100% !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
     }
     .cart-item-image {
         width: 100% !important;
-        height: 40vw !important;
+        height: 48vw !important;
         border-radius: 2vw !important;
         background: #1a1a1a !important;
     }
@@ -992,12 +1167,12 @@
         gap: 1.5vw !important;
     }
     .cart-item-title a {
-        font-size: 4.5vw !important;
-        font-weight: 600;
+        font-size: 5vw !important;
+        font-weight: 700;
         color: #fff !important;
     }
     .cart-item-price-each {
-        font-size: 3.5vw !important;
+        font-size: 3.8vw !important;
         color: #a0aec0 !important;
     }
     .cart-item-quantity {
@@ -1020,8 +1195,8 @@
         color: #fff !important;
     }
     .cart-item-total {
-        font-size: 5vw !important;
-        font-weight: 700 !important;
+        font-size: 5.5vw !important;
+        font-weight: 800 !important;
         color: red !important;
         text-align: center !important;
         margin-top: 2vw !important;
