@@ -49,7 +49,8 @@
         height: 7vw !important;
         object-fit: contain !important;
     }
-    .header > div:first-child > button { display: none !important }
+    
+    /* Correct button display bug: do not hide burger button */
     .btn-contact { display: none !important }
 
     /* === Search Mobile (Magnifying Glass Centered) === */
@@ -59,7 +60,7 @@
         align-items: center !important;
         justify-content: center !important;
         order: 2 !important;
-        margin-left: auto !important; /* Center alignment tricks */
+        margin-left: auto !important; /* Center alignment */
     }
     .search-mobile button {
         display: block !important;
@@ -122,7 +123,7 @@
     /* === Header Links === */
     .header-links { display: none !important }
 
-    /* === Burger Button (Right-aligned) === */
+    /* === Burger Button (Right-aligned & visible!) === */
     .burger {
         display: flex !important;
         flex-direction: column !important;
@@ -169,14 +170,16 @@
         background-color: red !important;
     }
 
-    /* === Burger Dropdown Menu === */
+    /* === Burger Dropdown Menu with slide-down animation & backdrop blur === */
     .burger-menu {
         display: flex !important;
         position: fixed !important;
         flex-direction: column !important;
         align-items: center !important;
         overflow-y: auto !important;
-        background-color: #2f2f2f !important;
+        background-color: rgba(47, 47, 47, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
         top: 16vw !important;
         left: 0 !important;
         width: 100vw !important;
@@ -185,7 +188,22 @@
         border-bottom-right-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
         z-index: 70 !important;
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        animation: slideDownBurger 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
     }
+    
+    @keyframes slideDownBurger {
+        0% {
+            transform: translateY(-50%) !important;
+            opacity: 0 !important;
+        }
+        100% {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
+    }
+
     .burger-closed {
         display: none !important;
     }
@@ -252,6 +270,8 @@
     .burger-contacts div img {
         width: 10vw !important;
         height: 10vw !important;
+        filter: brightness(0) invert(1) !important; /* Перекраска в чисто белый цвет */
+        opacity: 0.95 !important;
     }
     .burger-contacts div p {
         color: #fff !important;
@@ -313,6 +333,33 @@
         width: 100% !important;
         transform: none !important;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* === Promo Banner Fixes (Microscopic Text & height bug fixed!) === */
+    .catalog-promo {
+        height: 60vw !important;
+        padding: 6vw 4vw !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .catalog-promo img {
+        height: 90% !important;
+        right: 0 !important;
+        opacity: 0.35 !important;
+    }
+    .catalog-promo h2,
+    .catalog-promo h1 {
+        font-size: 6.5vw !important;
+        margin-bottom: 2vw !important;
+        line-height: 1.2 !important;
+        color: #fff !important;
+    }
+    .catalog-promo p {
+        font-size: 3.5vw !important;
+        max-width: 85% !important;
+        line-height: 1.4 !important;
+        color: #ccc !important;
     }
 
     /* === New Products (Ticker / Marquee) === */
@@ -450,121 +497,227 @@
     /* Horizontal status tags (SQUISHING FIX - screenshot 1) */
     .catalog-filter-tags {
         display: flex !important;
-        align-items: center !important;
-        flex-wrap: wrap !important;
-        gap: 3vw !important;
-        margin-bottom: 0 !important;
-        padding: 2vw 0 !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 2.67vw !important;
         width: 100% !important;
+        padding: 2vw 0 3vw !important;
+        scrollbar-width: none !important;
+        margin-bottom: 0 !important;
+    }
+    .catalog-filter-tags::-webkit-scrollbar {
+        display: none !important;
     }
     .catalog-filter-tags div {
-        flex: 1 1 auto !important;
-        min-width: 26vw !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        border: 1px solid #ccc !important;
-        transition: all 0.2s !important;
-        padding: 2.5vw 4vw !important;
-        border-radius: 200px !important;
-        background-color: #fff !important;
+        display: inline-block !important;
+        flex: 0 0 auto !important;
+        width: auto !important;
         height: auto !important;
-    }
-    .catalog-filter-tags div.filter-active {
-        background-color: red !important;
-        border-color: red !important;
-    }
-    .catalog-filter-tags div.filter-active label {
-        color: #fff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        background: transparent !important;
     }
     .catalog-filter-tags div input {
-        width: 0 !important;
-        height: 0 !important;
-        opacity: 0 !important;
-        position: absolute !important;
+        display: none !important;
     }
     .catalog-filter-tags div label {
-        border: none !important;
-        padding: 0 !important;
-        font-size: 3.5vw !important;
-        line-height: 100% !important;
-        font-weight: 600 !important;
+        display: block !important;
+        background-color: #fff !important;
+        border: 1px solid #ccc !important;
+        border-radius: 100px !important;
+        padding: 2vw 4vw !important;
+        font-size: 3.2vw !important;
         color: #2f2f2f !important;
+        transition: all 0.3s !important;
+        font-weight: 500 !important;
         cursor: pointer !important;
-        text-align: center !important;
+    }
+    .catalog-filter-tags div.filter-active label,
+    .catalog-filter-tags div input:checked + label {
+        background-color: red !important;
+        border-color: red !important;
+        color: #fff !important;
     }
 
     .mobile-filters-btn { display: none !important }
 
-    /* === Catalog Grid View === */
+    /* === Catalog Grid View (2 COLUMNS PRECISE GRID WITH 1 DETAILED RED BUTTON AS REQUESTED!) === */
     .catalog-view,
     .products-grid {
         width: 100% !important;
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        row-gap: 6vw !important;
-        column-gap: 4vw !important;
+        gap: 3.5vw !important;
     }
-    .catalog-product {
+    
+    /* For Cart Page & Liked Page, we force 1 Column layout as explicitly requested by the user: "в избранном и корзине в один ряд, в каталогах в два ряда" */
+    .cart-items-list,
+    .liked-products-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5vw !important;
+    }
+    
+    .catalog-product,
+    .products-grid .product-card {
         width: 100% !important;
         min-height: auto !important;
         position: relative !important;
         display: flex !important;
         flex-direction: column !important;
+        background: #ffffff !important; /* Белый фон для карточек как на скриншоте 1 */
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 4vw !important;
+        padding: 4vw !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+        color: #2f2f2f !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Make sure text within white cards is dark and beautifully visible */
+    .catalog-product .catalog-info-bottom p {
+        color: #2f2f2f !important;
+        font-size: 3.8vw !important;
+        font-weight: 700 !important;
+        margin-top: 2.5vw !important;
+        margin-bottom: 2vw !important;
+        text-align: left !important;
+    }
+    .catalog-product .catalog-info-upper span {
+        border-color: #2f2f2f !important;
+        color: #2f2f2f !important;
+        background: transparent !important;
+        font-size: 2.6vw !important;
+        padding: 1vw 2.5vw !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Style specifications and details inside .product-card for catalog.html */
+    .products-grid .product-card .card-info {
+        padding: 0 !important;
+        background: transparent !important;
+        color: #2f2f2f !important;
+    }
+    .products-grid .product-card .product-title {
+        color: #2f2f2f !important;
+        font-size: 3.8vw !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        margin-top: 2.5vw !important;
+        margin-bottom: 2vw !important;
+    }
+    .products-grid .product-card .product-specs-preview {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1vw !important;
+        font-size: 2.8vw !important;
+        color: #666 !important;
+        margin-bottom: 3vw !important;
+    }
+    .products-grid .product-card .product-specs-preview b {
+        color: #2f2f2f !important;
+    }
+    .products-grid .product-card .product-price {
+        font-size: 4.2vw !important;
+        font-weight: 800 !important;
+        color: red !important;
+        margin-bottom: 2vw !important;
     }
     
     .catalog-info {
-        padding: 2vw !important;
-        height: 48vw !important;
-        border-radius: 3vw !important;
-        background-color: #fff !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-    }
-    .catalog-info-upper {
-        margin-bottom: 2vw !important;
-    }
-    .catalog-info-upper span {
-        padding: 1vw 2.5vw !important;
-        font-size: 2.5vw !important;
-        border-radius: 100px !important;
-        border: 1px solid #2f2f2f !important;
-    }
-    .catalog-info-bottom img {
-        width: 100% !important;
-        height: 24vw !important;
-        margin-bottom: 2vw !important;
-        border-radius: 2vw !important;
-    }
-    .catalog-info-bottom p {
-        font-size: 3.5vw !important;
-        font-weight: 700 !important;
-        color: #2f2f2f !important;
-    }
-    .catalog-info-bottom p:last-child {
-        display: none !important;
-    }
-    .catalog-buttons {
-        margin-top: 3vw !important;
-        gap: 2vw !important;
+        padding: 0 !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
     }
-    .catalog-buttons button { display: none !important }
-    .catalog-buttons a {
+    .catalog-info-upper {
+        margin-bottom: 2vw !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+    }
+    .catalog-info-bottom {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
         width: 100% !important;
-        background-color: red !important;
-        color: #fff !important;
+    }
+    .catalog-info-bottom img,
+    .products-grid .product-card .card-image img {
+        width: 100% !important;
+        height: 32vw !important;
+        object-fit: contain !important;
+        margin-bottom: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+    }
+    
+    .products-grid .product-card .card-image {
+        background: transparent !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+    }
+    .products-grid .product-card .like-btn {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid #ccc !important;
+        width: 7vw !important;
+        height: 7vw !important;
+        top: 0vw !important;
+        right: 0vw !important;
+    }
+    
+    .catalog-info-bottom p:last-child {
+        display: none !important;
+    }
+    
+    /* Catalog buttons formatting: exactly one Red button "Подробнее" for mobile grid! */
+    .catalog-buttons,
+    .products-grid .product-card .card-footer {
+        margin-top: 3vw !important;
+        display: flex !important;
+        width: 100% !important;
+    }
+    
+    /* Hide the second button ("В корзину" / "Купить") on mobile grid to keep layout ultra premium and clean */
+    .catalog-buttons button,
+    .products-grid .product-card .buy-btn {
+        display: none !important;
+    }
+    
+    /* Red details button "Подробнее" on full card width */
+    .catalog-buttons a,
+    .products-grid .product-card .details-btn {
+        width: 100% !important;
         padding: 3vw 0 !important;
         border-radius: 200px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 3.2vw !important;
-        font-weight: 600 !important;
+        font-size: 3.5vw !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        background-color: red !important;
+        color: #fff !important;
+        border: none !important;
+        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.15) !important;
+    }
+    
+    /* Restore 1 Column style only for cart page items and liked page items so details fit perfectly */
+    .cart-items-list .cart-item,
+    .liked-products-grid .product-card {
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
     }
 
-    /* === Favorites Grid Layout (liked.html - Sizing & design similar to Cart) === */
+    /* Liked products grid page */
     .liked-products-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -572,17 +725,10 @@
         width: 100% !important;
     }
     .liked-products-grid .product-card {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 4vw !important;
-        padding: 5vw !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        padding: 5vw !important;
         border-radius: 3vw !important;
-        position: relative !important;
-        width: 100% !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
     }
     .liked-products-grid .card-image {
         width: 100% !important;
@@ -1128,14 +1274,20 @@
         gap: 6vw !important;
     }
 
-    /* === Cart Page Responsive Design === */
+    /* === Cart Page Responsive Design (Wider Cards Fix) === */
     .cart-layout {
         display: flex !important;
         flex-direction: column !important;
         gap: 6vw !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     .cart-items-list {
         gap: 4vw !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     .cart-item {
         display: flex !important;
@@ -1148,6 +1300,7 @@
         border-radius: 3vw !important;
         position: relative !important;
         width: 100% !important;
+        box-sizing: border-box !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
     }
     .cart-item-image {

@@ -162,7 +162,7 @@ function initHeader() {
     }
 
     // Catalog link handling: smooth scroll on homepage, redirect on other pages
-    const catalogLinks = document.querySelectorAll('.header-links a[href="/catalog.html"], .burger-links a[href="/catalog.html"], .burger-links button.burger-link');
+    const catalogLinks = document.querySelectorAll('.header-links a[href="/catalog.html"], .burger-links a[href="/catalog.html"], .burger-links button.burger-link, .hero-section .btn-primary');
     catalogLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
@@ -177,7 +177,7 @@ function initHeader() {
                         document.getElementById('burger-btn')?.click();
                     }
                 }
-            } else if (link.tagName !== 'BUTTON') {
+            } else if (link.tagName !== 'BUTTON' && !link.classList.contains('btn-primary')) {
                 window.location.href = '/catalog.html';
             }
         });
@@ -241,6 +241,14 @@ function initBurgerMenu() {
                 }
             });
         }
+    }
+
+    // Добавляем автоматическое закрытие бургер-меню при клике по кнопке "Связаться" в меню
+    const burgerContactBtn = document.querySelector('.burger-contact');
+    if (burgerContactBtn) {
+        burgerContactBtn.addEventListener('click', () => {
+            closeMenu();
+        });
     }
 }
 
